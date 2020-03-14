@@ -1,0 +1,7 @@
+web:
+    build: .
+    ports:
+        - "8000:80"
+    volumes:
+        - ./src:/var/www/html/
+        - ./000-default.conf:/etc/apache2/sites-enabled/000-default.conf
