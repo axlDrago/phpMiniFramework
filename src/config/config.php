@@ -16,17 +16,17 @@ $config = [
         'site' => [
             'template' => 'site', 
             'assets' => [
-                'title'=>'PHPengineMVC', 
-                // 'css' => [], 
-                // 'js' => []
+                'title' => 'PHPengineMVC', 
+                'css' => [], 
+                'js' => []
             ]
         ],
         'auth' => [
             'template' => 'auth',
             'assets' => [
                 'title'=>'Авторизация', 
-                // 'css' => [],
-                // 'js' => []
+                'css' => [],
+                'js' => []
             ]
         ]
     ]

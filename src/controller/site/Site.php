@@ -9,7 +9,9 @@ class Site extends Core
 
     public function about()
     {
-        $this->renderTemplate('content');    
+        $about = new SiteModel;
+        $template = $about->test();
+        $this->renderTemplate($template);
     }
 
     public function contact()

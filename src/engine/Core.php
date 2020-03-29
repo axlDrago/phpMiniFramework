@@ -25,22 +25,30 @@ class Core {
      */
     public function autoRequire ($dir = []) 
     {
-        try
-        {
-            foreach ($dir as $key => $value) {
-                $scan = scandir($value);
-                $d = $dir[$key];
-                foreach($scan as $key => $value) 
+        foreach ($dir as $key => $value) {
+            $scan = scandir($value);
+            $d = $dir[$key];
+            foreach($scan as $key => $val) 
+            {
+                if($key !== 0 & $key !== 1 & preg_match('/(\.php)/', $val) === 0)
                 {
-                    if($key !== 0 & $key !== 1) {
-                      require_once(__DIR__ . '/' . $d. '/' . $value);
-                    }
+                    $scan2 = scandir($value .'/'.$val);
+                    $path = $d . '/' . $val;
+                    $this->require($scan2, $path);
                 }
             }
+            $this->require($scan, $d);
         }
-        catch (Exception $e) 
+    }
+    /**
+     * Метод подключения
+     */
+    protected function require ($scan, $path){
+        foreach($scan as $key => $value) 
         {
-            echo $e->getMessage();
+            if($key !== 0 & $key !== 1 & preg_match('/(\.php)/', $value) !== 0) {
+                require_once(__DIR__ . '/' . $path. '/' . $value);
+            }
         }
     }
 
