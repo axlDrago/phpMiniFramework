@@ -107,9 +107,12 @@ class Core {
      */
     protected function controllers()
     {
-        $path = explode('/', $_SERVER['REQUEST_URI']);
+        $url = explode('?', $_SERVER['REQUEST_URI']);
+        $path = explode('/', $url[0]);
+
         $controllers = scandir('../controller');
         $result = false;
+
         foreach($controllers as $key => $value) {
             $value = explode('.', $value);
             if($path[1] == "")
@@ -122,24 +125,24 @@ class Core {
                 break;
             }
         }
-
         if ($result) {
             $controller = ucfirst($path[1]);
 
-            if (!key_exists(2, $path) || !$path[2]){
+            if (!key_exists(2, $path) || trim($path[2]) == ""){
                 $controller = new $controller;
                 $controller->index();
             } else {
-                $b = explode('?', $path[2]);
-                $b = $b[0];
-                if (method_exists($controller, $b)){
-                    $controller = new $controller;
-                    $controller->$b();
+                $b = count($path) - 1;
+                $method = $path[$b];
+                $controller = new $controller;
+
+                if (method_exists($controller, $path[$b])) {
+                    $controller->$method();
                 } else {
-                    $this->render('404');        
+                    $this->render('404');
                 }
             }
-        } else if ($path[1] == "") {
+        } else if (trim($path[1]) == "") {
             $controller = new Site;
             $controller->index();
         } else {
