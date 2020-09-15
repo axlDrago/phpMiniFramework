@@ -20,7 +20,7 @@
 По умолчанию контроллер Site главный, все запросы переадресуются с localhost/site/action на localost/action/;
 <br>
 start из корня: <br>
-1. composer install <br> 
+1. cd ./src/ && composer install && cd ../<br> 
 2. docker-compose up <br> 
 3. доступен по адресу localhost:8000
 

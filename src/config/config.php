@@ -2,7 +2,7 @@
 
 $config = [
     'db' => [
-        'host' => '',
+        'host' => 'db',
         'login' => 'admin',
         'password' => 'admin',
         'port' => '3306'

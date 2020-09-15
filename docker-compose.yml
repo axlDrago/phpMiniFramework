@@ -1,7 +1,25 @@
-web:
-    build: .
-    ports:
-        - "8000:80"
-    volumes:
-        - ./src:/var/www/html/
-        - ./000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+version: "3"
+services: 
+    web:
+        build: .
+        ports:
+            - "8000:80"
+        volumes:
+            - ./src:/var/www/html/
+            - ./000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+            
+    db:
+        image: mysql
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: admin
+            MYSQL_DATABASE: development
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: admin
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
