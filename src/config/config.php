@@ -5,9 +5,11 @@ $config = [
         'host' => 'db',
         'login' => 'admin',
         'password' => 'admin',
-        'port' => '3306'
+        'port' => '3306',
+        'dbname' => 'development',
+        'charset' => 'utf8'
     ],
-    'salt' => '',
+    'salt' => 'salt',
     'dir' => [
         '../controller',
         '../models'
@@ -16,7 +18,7 @@ $config = [
         'site' => [
             'template' => 'site', 
             'assets' => [
-                'title' => 'PHPengineMVC', 
+                'title' => 'Ezhevika Menu', 
                 'css' => [], 
                 'js' => []
             ]

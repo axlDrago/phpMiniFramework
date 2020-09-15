@@ -1,0 +1,38 @@
+.loginPage_container{
+    height: 330px;
+    margin-top: 20%;
+}
+
+.loginPage_form{
+    height: 100%;
+}
+
+.loginPage_form-btn{
+    font-size: 22px;
+}
+
+/* label color */
+.input-field label {
+  color: grey;
+}
+/* label focus color */
+.input-field input[type=text]:not(.browser-default):focus:not([readonly]) + label {
+    color: grey; 
+}
+.input-field input[type=password]:not(.browser-default):focus:not([readonly]) + label {
+    color: grey; 
+}
+
+/* label underline focus color */
+.input-field input[type=text]:not(.browser-default):focus:not([readonly])  {
+  border-bottom: 1px solid #bbdefb ;
+  box-shadow: 0 1px 0 0 #bbdefb ;
+}
+.input-field input[type=password]:not(.browser-default):focus:not([readonly])  {
+    border-bottom: 1px solid #bbdefb ;
+    box-shadow: 0 1px 0 0 #bbdefb ;
+}
+.input-field input[type=text]:not(.browser-default).valid, input[type=password]:not(.browser-default).valid{
+    border-bottom: 1px solid #bbdefb ;
+    box-shadow: 0 1px 0 0 #bbdefb ;
+}

@@ -23,6 +23,7 @@ class User extends Core {
             if($result) {
                 if($result[0]['password'] == $passwordHash) {
                     $_SESSION['id'] = session_id();
+                    $_SESSION['isLogin'] = true;
                     echo json_encode(array('success' => 'succes'));
                 } else {
                     echo json_encode(array('err' => 'Неверный пароль!'));

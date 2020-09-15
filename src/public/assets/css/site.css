@@ -1,13 +1,13 @@
 
 body{
     margin:0;
+    background-color: rgb(77, 74, 74);
   }
   
   @font-face {
     font-family: 'Cookie', cursive;
     src:url('https://fonts.googleapis.com/css?family=Cookie');
   }
-  
   
   .fon{
     left:50%;

@@ -22,7 +22,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/site/">Главная</a></li>
         <li><a href="/site/about">О нас</a></li>
-        <li><a href="/site/contact">Страница недоступна</a></li>
+        <li><a href="/auth/logout">LogOut</a></li>
       </ul>
     </div>
   </nav>

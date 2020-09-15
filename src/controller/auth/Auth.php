@@ -8,7 +8,7 @@ class Auth extends Core
         if($model->isAuth()){
             $this->redirect('/');
         } else {
-            $this->renderTemplate('auth');
+            $this->renderTemplate('loginPage', ['css' => ['auth/loginPage'], 'js'=>['auth/auth']]);
         }
     }
 
@@ -22,6 +22,8 @@ class Auth extends Core
     }
 
     public function logout(){
+        unset ($_SESSION['isLogin']);
+        unset ($_SESSION['id']);
         session_destroy();
         $this->redirect('/');
     }

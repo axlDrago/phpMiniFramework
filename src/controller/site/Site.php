@@ -4,7 +4,13 @@ class Site extends Core
 {
     public function index()
     {
-        $this->renderTemplate('main');    
+        $model = new User;
+        if($model->isAuth()){
+            $this->renderTemplate('main');
+
+        } else {
+            $this->redirect('/auth');
+        }
     }
 
     public function about()
@@ -12,11 +18,6 @@ class Site extends Core
         $about = new SiteModel;
         $template = $about->test();
         $this->renderTemplate($template);
-    }
-
-    public function contact()
-    {
-        $this->render('404'); 
     }
 
 }
